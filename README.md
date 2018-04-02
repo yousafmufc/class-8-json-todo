@@ -46,7 +46,7 @@ $ python main.py complete 1  # by order/id
 **Test:** `test_create_new_task_invalid_due_date`
 
 ```bash
-$ py.test tests.py --tb=short -k invalid_due_date
+$ py.test tests.py -k invalid_due_date
 ```
 
 ##### List tasks with invalid status
@@ -54,7 +54,7 @@ $ py.test tests.py --tb=short -k invalid_due_date
 **Test:** `test_list_invalid_status_task`
 
 ```bash
-$ py.test tests.py --tb=short -k status_task
+$ py.test tests.py -k status_task
 
 ```
 
@@ -63,7 +63,7 @@ $ py.test tests.py --tb=short -k status_task
 **Test:** `test_complete_task_by_id`
 
 ```bash
-$ py.test tests.py --tb=short -k task_by_id
+$ py.test tests.py -k task_by_id
 
 ```
 
@@ -72,7 +72,7 @@ $ py.test tests.py --tb=short -k task_by_id
 **Test:** `test_complete_task_already_done`
 
 ```bash
-$ py.test tests.py --tb=short -k task_already_done
+$ py.test tests.py -k task_already_done
 
 ```
 
@@ -81,6 +81,6 @@ $ py.test tests.py --tb=short -k task_already_done
 **Test:** `test_complete_task_doesnt_exist_fails`
 
 ```bash
-$ py.test tests.py --tb=short -k doesnt_exist
+$ py.test tests.py -k doesnt_exist
 
 ```
