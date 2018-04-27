@@ -7,7 +7,7 @@ $ mkvirtualenv todos -p /usr/bin/python3
 $ pip install -r requirements.txt
 ```
 
-# Change branches from master to students-tasks
+# Change branches to students-tasks
 
 ```bash
 $ git checkout -b students-tasks origin/students-tasks
