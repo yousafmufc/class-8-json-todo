@@ -24,7 +24,7 @@ $ python main.py --debug
 
 **List todos**
 ```bash
-$ python main.py list 
+$ python main.py list
 $ python main.py list -s pending
 $ python main.py list -s done
 $ python main.py list -s all
@@ -45,48 +45,32 @@ $ python main.py complete "My TODO Task"
 $ python main.py complete 1  # by order/id
 ```
 
-### Student's Tasks
+### Student's Tasks
 
-##### Create tasks Invalid Due Dates
+The branch `students-tasks` contains some unsolved pieces of the code. Don't worry that your instructor is supposed to go over all this during class. But as a extra reference, here's what you'll find:
 
-**Test:** `test_create_new_task_invalid_due_date`
+##### Main tests
+
+There are 5 tests that need fixing. You can find them in `tests.py` with comments similar to `# FIXME: Test`. To run those tests you can use some make commands that we've created. For example:
 
 ```bash
-$ py.test tests.py -k invalid_due_date
+$ make test_1
+$ make test_2
+$ make test_3 #... etc
 ```
 
-##### List tasks with invalid status
-
-**Test:** `test_list_invalid_status_task`
+There are also two more tasks that show extra info
 
 ```bash
-$ py.test tests.py -k status_task
-
+$ make test  # Runs ALL the tests
+$ make test_summary # Just prints a quick summary of the tests that are failing
 ```
 
-##### Complete tasks by ID
+##### Optional exercises
 
-**Test:** `test_complete_task_by_id`
-
-```bash
-$ py.test tests.py -k task_by_id
-
-```
-
-##### Raise if the task is already done
-
-**Test:** `test_complete_task_already_done`
+There are two optional tests that can be run with:
 
 ```bash
-$ py.test tests.py -k task_already_done
-
-```
-
-##### Raise if the task doesn't exist
-
-**Test:** `test_complete_task_doesnt_exist_fails`
-
-```bash
-$ py.test tests.py -k doesnt_exist
-
+$ make optional_test_1
+$ make optional_test_2
 ```
