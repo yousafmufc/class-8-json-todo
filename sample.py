@@ -13,12 +13,11 @@ pprint(task_list)
 
 
 # Create task
-"""
-todos.create_task(tasks, 'Take out the trash')
-pprint(tasks)
-"""
+
+# todos.create_task(tasks, 'Take out the trash')
+# pprint(tasks)
+
 # Complete task
-"""
-new_tasks = todos.complete_task(tasks, 'Review AWS proposal')
-pprint(new_tasks)
-"""
+
+# new_tasks = todos.complete_task(tasks, 'Review AWS proposal')
+# pprint(new_tasks)

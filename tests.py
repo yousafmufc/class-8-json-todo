@@ -3,7 +3,20 @@ import todos
 from todos.exceptions import (
     InvalidTaskStatus, TaskAlreadyDoneException,
     InvalidTaskDueDateException, TaskDoesntExistException)
+
+from todos.utils import parse_int
+
 from datetime import datetime
+
+
+# FIXME: Test 1
+def test_parse_int():
+    assert parse_int('1') == 1
+    assert parse_int(1) == 1
+    assert parse_int(1.0) == 1
+
+    assert parse_int('a') is None
+    assert parse_int('XYZ') is None
 
 
 def test_create_todos_template():
@@ -86,8 +99,8 @@ def test_create_new_task_due_date_string_date():
     }]
 
 
+# FIXME: Test 2
 def test_create_new_task_invalid_due_date():
-    # FIXME: Student's task
     """
     If the date passed is invalid it should raise an:
         `InvalidTaskDueDateException`
@@ -209,8 +222,8 @@ def test_list_completed_tasks():
     ]
 
 
+# FIXME: Test 3
 def test_list_invalid_status_task():
-    # FIXME: Student's task
     """
     If the `list_tasks` method receives an invalid status, it should raise
     an `InvalidTaskStatus` Exception
@@ -292,8 +305,8 @@ def test_complete_task_by_name():
     }]
 
 
+# FIXME: Optional
 def test_complete_task_by_id():
-    # FIXME: Student's task
     """
     The task to complete can be given by either the name, or the order
     within the JSON file (starting from 1).
@@ -334,27 +347,9 @@ def test_complete_task_by_id():
         'status': 'pending'
     }]
 
-    # Original tasks were not changed
-    assert tasks == [{
-        'task': 'Email team updates',
-        'description': 'Some more details',
-        'due_on': datetime(2018, 3, 1, 9),
-        'status': 'pending'
-    }, {
-        'task': 'Update project plan',
-        'description': 'Important before investors meeting',
-        'due_on': datetime(2018, 2, 28, 9),
-        'status': 'done'
-    }, {
-        'task': 'Book conference room',
-        'description': None,
-        'due_on': datetime(2018, 3, 1, 8, 30),
-        'status': 'pending'
-    }]
 
-
+# FIXME: Test 4
 def test_complete_task_already_done():
-    # FIXME: Student's task
     """
     If the task is already done, it should raise a:
         `TaskAlreadyDoneException`
@@ -380,16 +375,35 @@ def test_complete_task_already_done():
         todos.complete_task(tasks, 'Update project plan')
 
 
-def test_complete_task_doesnt_exist_fails():
-    # FIXME: Student's task
+# FIXME: Test 5
+def test_complete_task_by_title_doesnt_exist_fails():
     """
-    If the task doesn't exist (either name or position), it should raise:
+    If the task (provided by title) doesn't exist it should raise:
         `TaskDoesntExistException`
     """
-    tasks = []
+    tasks = [{
+        'task': 'Email team updates',
+        'description': 'Some more details',
+        'due_on': datetime(2018, 3, 1, 9),
+        'status': 'pending'
+    }]
 
     with pytest.raises(TaskDoesntExistException):
         todos.complete_task(tasks, 'DOES NOT EXIST')
+
+
+# FIXME: Optional
+def test_complete_task_doesnt_exist_fails_by_id():
+    """
+    If the task (provided by ID) doesn't exist it should raise:
+        `TaskDoesntExistException`
+    """
+    tasks = [{
+        'task': 'Email team updates',
+        'description': 'Some more details',
+        'due_on': datetime(2018, 3, 1, 9),
+        'status': 'pending'
+    }]
 
     with pytest.raises(TaskDoesntExistException):
         todos.complete_task(tasks, '9')
